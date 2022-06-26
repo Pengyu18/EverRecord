@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="EverRecord.PartialViews.AddView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             xmlns:local="clr-namespace:EverRecord.PartialViews"
+             mc:Ignorable="d" d:DesignHeight="400" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="textTitle"
+            Padding="20,10"
+            Text="添加事项" FontWeight="Bold" FontSize="20" />
+
+        <!--<DockPanel  LastChildFill="False" MinHeight="250">-->
+            <Grid Grid.Row="1" Margin="50,10" HorizontalAlignment="Center">
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="130"/>
+                </Grid.ColumnDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="FontSize" Value="15"/>
+                        <Setter Property="HorizontalAlignment" Value="Right"/>
+                    </Style>
+                    <!--<Style TargetType="TextBox">
+                        <Setter Property="Margin" Value="5 5"/>
+                    </Style>-->
+                </Grid.Resources>
+                <Label   Grid.Row="0" Grid.Column="0" Content="ID：" />
+                <TextBox Grid.Row="0" Grid.Column="1" x:Name="textBoxId" />
+                <Label   Grid.Row="1" Grid.Column="0" Content="事项概要：" />
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="textBoxName" />
+                <Label   Grid.Row="2" Grid.Column="0" Content="事项内容：" />
+                <TextBox Grid.Row="2" Grid.Column="1" x:Name="textBoxText" md:HintAssist.Hint="选填"/>
+                <Label Grid.Row="3" Grid.Column="0" Content="分数："/>
+                <TextBox Grid.Row="3" Grid.Column="1" x:Name="textSort"/>
+                <Label   Grid.Row="4" Grid.Column="0" Content="日期：" />
+                <DatePicker Grid.Row="4" Grid.Column="1" Margin="5 1"
+                                    Name="datePickerBirthDate" SelectedDateFormat="Short" />
+            </Grid>
+        <!--</DockPanel>-->
+
+        <StackPanel Margin="10" Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" >
+            <Button Content="取消" Margin="0,0,10,0" Style="{StaticResource MaterialDesignOutlinedButton}" />
+            <!--Command="{Binding CancelCommand}" Command="{Binding SaveCommand}"-->
+            <Button Content="确定" Click="AddButton_Click"  />
+        </StackPanel>
+        <Label Name="LabelTip" Grid.Row="3" FontSize="15" Background="Coral" HorizontalContentAlignment="Center" />
+    </Grid>
+</UserControl>
