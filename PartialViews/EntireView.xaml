@@ -2,13 +2,112 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EverRecord.PartialViews"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <DataTemplate x:Key="DateTemplate">
+            <TextBlock Text="{Binding Date, StringFormat=yyyy-MM-dd}" />
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid>
-        <TextBlock Text="显示全部" FontSize="49">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="15,0,0,0" Orientation="Horizontal" >
+            <TextBox x:Name="seachText" Width="200" 
+                        VerticalAlignment="Center"
+                        md:HintAssist.Hint="查找事项..."
+                        md:TextFieldAssist.HasClearButton="True"/>
+            <TextBlock
+                        Margin="10,0"
+                        VerticalAlignment="Center"
+                        Text="筛选：" />
+            <ComboBox x:Name="attributeCombx" SelectedIndex="2">
+                <ComboBoxItem>积极事项</ComboBoxItem>
+                <ComboBoxItem>其它事项</ComboBoxItem>
+                <ComboBoxItem>全部</ComboBoxItem>
+            </ComboBox>
+            <Button Margin="10,0" Content="确定" Click="SearchButton_Click"/>
+            <Button Content="取消" Margin="0,0,10,0" Style="{StaticResource MaterialDesignOutlinedButton}" Click="Button_Click"/>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid Name="dataGrid1" Grid.Column="0" AutoGenerateColumns="False">
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header="属性" Binding="{Binding Attribute}" />
+                    <DataGridTextColumn Header="分数" Binding="{Binding Score}" />
+                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
+                    <DataGridTextColumn Header="概要" Binding="{Binding name}" />
+                    <DataGridTextColumn Header="内容" Binding="{Binding Text}" />
+                    <DataGridTemplateColumn Header="日期" SortMemberPath="日期" CellTemplate="{StaticResource DateTemplate}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Grid x:Name="editGird" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="textTitle"
+                        Padding="20,10"
+                        Text="编辑事项" FontWeight="Bold" FontSize="20" />
+                    <ComboBox x:Name="attributeCombx2" SelectedIndex="0">
+                        <ComboBoxItem>积极事项</ComboBoxItem>
+                        <ComboBoxItem>其它事项</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                
 
-        </TextBlock>
+                <!--<DockPanel  LastChildFill="False" MinHeight="250">-->
+                <Grid Grid.Row="1" Margin="50,10" HorizontalAlignment="Center">
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Resources>
+                        <Style TargetType="Label">
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                        </Style>
+                    </Grid.Resources>
+                    <Label   Grid.Row="0" Grid.Column="0" Content="ID：" />
+                    <Label Grid.Row="0" Grid.Column="1" x:Name="labelId" />
+                    <Label   Grid.Row="1" Grid.Column="0" Content="概要：" />
+                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="textBoxName" />
+                    <Label   Grid.Row="2" Grid.Column="0" Content="内容：" />
+                    <TextBox Grid.Row="2" Grid.Column="1" x:Name="textBoxText" md:HintAssist.Hint="选填"/>
+                    <Label Grid.Row="3" Grid.Column="0" Content="分数："/>
+                    <TextBox Grid.Row="3" Grid.Column="1" x:Name="textSort"/>
+                    <Label   Grid.Row="4" Grid.Column="0" Content="日期：" />
+                    <DatePicker Grid.Row="4" Grid.Column="1" Margin="5 1"
+                                    Name="datePickerDate" SelectedDateFormat="Short" />
+                </Grid>
+
+                <StackPanel Margin="10" Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" >
+                    <Button x:Name="btnDelete" Content="删除" Margin="0,0,10,0" Style="{StaticResource MaterialDesignOutlinedButton}" />
+                    <Button x:Name="btnModify" Content="修改"   />
+                </StackPanel>
+                <Label Name="LabelTip" Grid.Row="3" FontSize="15" Background="Coral" HorizontalContentAlignment="Center" />
+            </Grid>
+        </Grid>
+        
+
+
     </Grid>
 </UserControl>

@@ -24,8 +24,8 @@ namespace EverRecord.PartialViews
         public IndexView()
         {
             InitializeComponent();
+
             dateText.Text = DateTime.Now.GetDateTimeFormats('D')[0].ToString();
-            
 
             InitEvents();
         }

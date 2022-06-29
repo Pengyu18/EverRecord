@@ -42,155 +42,156 @@
                         <Button Content="确定" Click="AddButton_Click"  />
                     </StackPanel>
                 </DockPanel>
-                
+
             </materialDesign:DrawerHost.RightDrawerContent>
-        
-    
-        <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <ItemsControl Grid.Column="0">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <UniformGrid Rows="2" />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
 
-            <ItemsControl>
-                <Border Margin="10" Background="#FF0CA0CF" CornerRadius="5">
-                    <Border.InputBindings>
-                        <MouseBinding MouseAction="LeftClick" />
-                        <!--Command="{Binding DataContext.NavigateCommand, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ItemsControl}}"  CommandParameter="{Binding}"-->
-                    </Border.InputBindings>
 
-                    <Border.Style>
-                        <Style TargetType="Border">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Effect">
-                                        <Setter.Value>
-                                            <DropShadowEffect
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <ItemsControl Grid.Column="0" Grid.ColumnSpan="2">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Rows="2" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl>
+                        <Border Margin="10" Background="#FF0CA0CF" CornerRadius="5">
+                            <Border.InputBindings>
+                                <MouseBinding MouseAction="LeftClick" />
+                                <!--Command="{Binding DataContext.NavigateCommand, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ItemsControl}}"  CommandParameter="{Binding}"-->
+                            </Border.InputBindings>
+
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Effect">
+                                                <Setter.Value>
+                                                    <DropShadowEffect
                                                     BlurRadius="10"
                                                     ShadowDepth="1"
                                                     Color="#DDDDDD" />
-                                        </Setter.Value>
-                                    </Setter>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Border.Style>
-                    <Grid>
-                        <StackPanel Margin="20,10" Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Width="30" Height="30" Kind="Calendar"  Margin="5,10"/>
-                                <TextBlock Text="今日" FontWeight="Bold" Margin="0,15" FontSize="15"/>
-                            </StackPanel>
-                            <TextBlock x:Name="dateText" FontWeight="Bold" Margin="0,15" FontSize="15"/>
-                        </StackPanel>
-                    </Grid>
-                </Border>
-            </ItemsControl>
-            <ItemsControl>
-                <Border Margin="10" Background="#FFFFA0" CornerRadius="5">
-                    <Border.InputBindings>
-                        <MouseBinding MouseAction="LeftClick" />
-                        <!--Command="{Binding DataContext.NavigateCommand, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ItemsControl}}"  CommandParameter="{Binding}"-->
-                    </Border.InputBindings>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <Grid>
+                                <StackPanel Margin="10,10" Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Width="30" Height="30" Kind="Calendar"  Margin="5,10"/>
+                                        <TextBlock Text="今日" FontWeight="Bold" Margin="0,15" FontSize="15"/>
+                                    </StackPanel>
+                                    <TextBlock x:Name="dateText" FontWeight="Bold" Margin="0,15" FontSize="14"  />
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </ItemsControl>
+                    <ItemsControl>
+                        <Border Margin="10" Background="#FFFFA0" CornerRadius="5">
+                            <Border.InputBindings>
+                                <MouseBinding MouseAction="LeftClick" />
+                                <!--Command="{Binding DataContext.NavigateCommand, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ItemsControl}}"  CommandParameter="{Binding}"-->
+                            </Border.InputBindings>
 
-                    <Border.Style>
-                        <Style TargetType="Border">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Effect">
-                                        <Setter.Value>
-                                            <DropShadowEffect
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Effect">
+                                                <Setter.Value>
+                                                    <DropShadowEffect
                                                     BlurRadius="10"
                                                     ShadowDepth="1"
                                                     Color="#DDDDDD" />
-                                        </Setter.Value>
-                                    </Setter>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Border.Style>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
 
-                    <Grid>
-                        <StackPanel Margin="20,10" Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Width="30" Height="30" Kind="Idea"  Margin="5,10"/>
-                                <TextBlock Text="得分" FontWeight="Bold" Margin="0,15" FontSize="15"/>
-                            </StackPanel>
-                            <TextBlock x:Name="sorteText" FontWeight="Bold" Margin="0,15" FontSize="15"/>
-                        </StackPanel>
-                    </Grid>
-                </Border>
-            </ItemsControl>
-        </ItemsControl>
+                            <Grid>
+                                <StackPanel Margin="20,10" Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Width="30" Height="30" Kind="Idea"  Margin="5,10"/>
+                                        <TextBlock Text="得分" FontWeight="Bold" Margin="0,15" FontSize="15"/>
+                                    </StackPanel>
+                                    <TextBlock x:Name="sorteText" FontWeight="Bold" Margin="0,15" FontSize="15"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </ItemsControl>
+                </ItemsControl>
 
-        <Border
-                Margin="10,0"
-                Background="#BEBEBE"
-                CornerRadius="5"
-                Opacity="0.1" Grid.Column="1" />
-        <Border
-                Margin="10,0"
+                <Border
+                Margin="10,0,10.333,0"
                 Background="#BEBEBE"
                 CornerRadius="5"
                 Opacity="0.1" Grid.Column="2" />
-        <DockPanel Margin="10,0" Grid.Column="1">
-            <DockPanel
+                <Border
+                Margin="9.667,0,10,0"
+                Background="#BEBEBE"
+                CornerRadius="5"
+                Opacity="0.1" Grid.Column="3" />
+                <DockPanel Margin="10,0,10.333,0" Grid.Column="2">
+                    <DockPanel
                     Margin="10,5"
                     DockPanel.Dock="Top"
                     LastChildFill="False">
-                <TextBlock
+                        <TextBlock
                         FontSize="20"
                         FontWeight="Bold"
                         Text="积极事项" />
-                <Button  x:Name="addTrueBtn" Click="addTrueBtn_Click"
+                        <Button  x:Name="addTrueBtn" Click="addTrueBtn_Click"
                         Width="30"
                         Height="30" 
                         VerticalAlignment="Top"
                         DockPanel.Dock="Right"
                         Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
-                    <materialDesign:PackIcon Kind="Add" />
-                </Button>
-            </DockPanel>
-            <DataGrid x:Name="dataGridTrue" AutoGenerateColumns="False" Margin="20,0">
-                 <DataGrid.Columns>
+                            <materialDesign:PackIcon Kind="Add" />
+                        </Button>
+                    </DockPanel>
+                    <DataGrid x:Name="dataGridTrue" AutoGenerateColumns="False" Margin="20,0">
+                        <DataGrid.Columns>
                             <!--<DataGridTextColumn Header="ID" Binding="{Binding Id , Mode=Default}"/>-->
                             <DataGridTextColumn Header="概要" Binding="{Binding name}" />
                             <DataGridTextColumn Header="内容" Binding="{Binding Text}" Width="120" />
                             <DataGridTextColumn Header="分数" Binding="{Binding Score}" />
                         </DataGrid.Columns>
-            </DataGrid>
-            <ListBox>
-                 <!--<Label x:Name="label" FontSize="20"/>-->
+                    </DataGrid>
+                    <ListBox>
+                        <!--<Label x:Name="label" FontSize="20"/>-->
 
-            </ListBox>
-        </DockPanel>
+                    </ListBox>
+                </DockPanel>
 
-        <DockPanel Margin="10,0" Grid.Column="2">
-            <DockPanel
+                <DockPanel Margin="9.667,0,10,0" Grid.Column="3">
+                    <DockPanel
                     Margin="10,5"
                     DockPanel.Dock="Top"
                     LastChildFill="False">
-                <TextBlock 
+                        <TextBlock 
                         FontSize="20"
                         FontWeight="Bold"
                         Text="其它事务" />
-                <Button  Command="{Binding ExecuteCommand}"
+                        <Button  Command="{Binding ExecuteCommand}"
                              CommandParameter="新增事项"
                         Width="30"
                         Height="30" 
                         VerticalAlignment="Top"
                         DockPanel.Dock="Right"
                         Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Click="addFalseBtn_Click">
-                    <materialDesign:PackIcon Kind="Add" />
-                </Button>
-            </DockPanel>
+                            <materialDesign:PackIcon Kind="Add" />
+                        </Button>
+                    </DockPanel>
                     <DataGrid x:Name="dataGridFalse" AutoGenerateColumns="False" Margin="20,0">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="概要" Binding="{Binding name}" />
@@ -199,12 +200,12 @@
                         </DataGrid.Columns>
                     </DataGrid>
                     <ListBox>
-                
-                
-            </ListBox>
-        </DockPanel>
-        <!--<TextBlock x:Name="dateText" Margin="15,10" FontSize="22"/>-->
-    </Grid>
+
+
+                    </ListBox>
+                </DockPanel>
+                <!--<TextBlock x:Name="dateText" Margin="15,10" FontSize="22"/>-->
+            </Grid>
         </materialDesign:DrawerHost>
     </materialDesign:DialogHost>
 </UserControl>

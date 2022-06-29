@@ -85,9 +85,11 @@ namespace EverRecord
             entireBtn.Click += (s, e) => {
                 frame.Content = new PartialViews.EntireView();
             };
-            searchBtn.Click += (s, e) => {
-                frame.Content = new PartialViews.SearchView();
-            };
+            
+            //待完善
+            //searchBtn.Click += (s, e) => {
+            //    frame.Content = new PartialViews.SearchView();
+            //};
 
         }
     }
